@@ -1,0 +1,209 @@
+.gradient-nav {
+  padding: 8px 18px;
+  margin: 0 5px;
+  border-radius: 5px; /* Reduced from 25px to 12px */
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  color: transparent;
+  box-sizing: border-box;
+}
+
+/* Gradient border */
+.gradient-nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5px; /* Match the reduced radius */
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    #ff4fc3 0%,
+    #d04fe3 33%,
+    #a066e3 66%,
+    #7a8de6 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+/* Gradient text */
+.gradient-nav:not(.active) {
+  background: linear-gradient(
+    135deg,
+    #ff4fc3 0%,
+    #d04fe3 33%,
+    #a066e3 66%,
+    #7a8de6 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Hover effect - now shows gradient colors instead of white */
+.gradient-nav:hover:not(.active) {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 79, 195, 0.15) 0%,
+    rgba(208, 79, 227, 0.15) 33%,
+    rgba(160, 102, 227, 0.15) 66%,
+    rgba(122, 141, 230, 0.15) 100%
+  );
+  box-shadow: 
+    0 0 10px rgba(255, 79, 195, 0.4),
+    0 0 15px rgba(160, 102, 227, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Active state */
+.gradient-nav.active {
+  background: linear-gradient(
+    135deg,
+    #ff4fc3 0%,
+    #d04fe3 33%,
+    #a066e3 66%,
+    #7a8de6 100%
+  );
+  color: #ffffff !important;
+  border: none;
+  box-shadow: 
+    0 0 12px rgba(255, 79, 195, 0.7),
+    0 0 20px rgba(160, 102, 227, 0.5);
+}
+.gradient-username {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1.5rem; /* Matches fs-4 */
+  background: linear-gradient(
+    135deg,
+    #ff4fc3 0%,
+    #d04fe3 33%,
+    #a066e3 66%,
+    #7a8de6 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+/* Apply gradient to the SVG icon */
+.gradient-username img {
+  filter: url('#gradient-filter');
+  width: 30px;
+  height: 30px;
+}
+
+/* SVG filter for the icon gradient */
+.svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Hover effect */
+.gradient-username:hover {
+  text-shadow: 0 0 8px rgba(255, 79, 195, 0.4);
+  transform: translateY(-1px);
+}
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    #ff4fc3 0%,
+    #d04fe3 33%,
+    #a066e3 66%,
+    #7a8de6 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline; /* Changed from inline-block to work better with heading */
+  /* Preserve Bootstrap heading styles */
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+/* Card styling with gradient border */
+.card {
+  position: relative;
+  transition: all 0.3s ease;
+  border: none; /* Remove default border */
+  background-color: white;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Gradient border using ::before */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.375rem;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    #ff4fc3 0%, 
+    #d04fe3 33%, 
+    #a066e3 66%, 
+    #7a8de6 100%);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 5px 15px rgba(255, 79, 195, 0.3),
+    0 10px 30px rgba(160, 102, 227, 0.2);
+}
+
+.card:hover::before {
+  background: linear-gradient(135deg, 
+    #ff4fc3 0%, 
+    #ff4fc3 20%,
+    #d04fe3 40%,
+    #a066e3 60%,
+    #7a8de6 80%,
+    #7a8de6 100%);
+  padding: 3px; /* Thicker border on hover */
+}
+
+/* Gradient text for headings */
+.gradient-text {
+  background: linear-gradient(135deg, 
+    #ff4fc3 0%, 
+    #d04fe3 33%, 
+    #a066e3 66%, 
+    #7a8de6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+}
+
+/* Card content styling */
+.card-body {
+  padding: 1.5rem;
+}
